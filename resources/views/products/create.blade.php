@@ -22,6 +22,14 @@
         <input type="number" name="price" placeholder="Price">
     </div>
     <div>
+        <strong>Category:</strong>
+        <select name="category_id" id="">
+            @foreach ($categories as $category)
+            <option value="{{ $category->id }}">{{ $category->id }}</option>
+            @endforeach
+        </select>
+    </div>
+    <div>
         <button type="submit">Submit</button>
     </div>
 </form>
