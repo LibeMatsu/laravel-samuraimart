@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->text('description');
+            $table->integer('price')->unsigned();
+            // ↑unsigned()を追加することで、-5000などのマイナスの値が保存できないようになる
             $table->timestamps();
         });
     }
