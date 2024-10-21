@@ -22,33 +22,47 @@
                  <hr>
              </div>
              @auth
-             <form method="POST" class="m-3 align-items-end">
-                 @csrf
-                 <input type="hidden" name="id" value="{{$product->id}}">
-                 <input type="hidden" name="name" value="{{$product->name}}">
-                 <input type="hidden" name="price" value="{{$product->price}}">
-                 <div class="form-group row">
-                     <label for="quantity" class="col-sm-2 col-form-label">数量</label>
-                     <div class="col-sm-10">
-                         <input type="number" id="quantity" name="qty" min="1" value="1" class="form-control w-25">
-                     </div>
-                 </div>
-                 <input type="hidden" name="weight" value="0">
-                 <div class="row">
-                     <div class="col-7">
-                         <button type="submit" class="btn samuraimart-submit-button w-100">
-                             <i class="fas fa-shopping-cart"></i>
-                             カートに追加
-                         </button>
-                     </div>
-                     <div class="col-5">
-                         <a href="/products/{{ $product->id }}/favorite" class="btn samuraimart-favorite-button text-dark w-100">
-                             <i class="fa fa-heart"></i>
-                             お気に入り
-                         </a>
-                     </div>
-                 </div>
-             </form>
+                <form method="POST" class="m-3 align-items-end">
+                    @csrf
+                    <input type="hidden" name="id" value="{{$product->id}}">
+                    <input type="hidden" name="name" value="{{$product->name}}">
+                    <input type="hidden" name="price" value="{{$product->price}}">
+                    <div class="form-group row">
+                        <label for="quantity" class="col-sm-2 col-form-label">数量</label>
+                        <div class="col-sm-10">
+                            <input type="number" id="quantity" name="qty" min="1" value="1" class="form-control w-25">
+                        </div>
+                    </div>
+                    <input type="hidden" name="weight" value="0">
+                    <div class="row">
+                        <div class="col-7">
+                            <button type="submit" class="btn samuraimart-submit-button w-100">
+                                <i class="fas fa-shopping-cart"></i>
+                                カートに追加
+                            </button>
+                        </div>
+                        <div class="col-5">
+                                @if(Auth::user()->favorite_products()->where('product_id', $product->id)->exists())
+                                    <a href="{{ route('favorites.destroy', $product->id) }}" class="btn samuraimart-favorite-button text-favorite w-100" onclick="event.preventDefault(); document.getElementById('favorites-destroy-form').submit();">
+                                        <i class="fa fa-heart"></i>
+                                        お気に入り解除
+                                    </a>
+                                @else
+                                    <a href="{{ route('favorites.store', $product->id) }}" class="btn samuraimart-favorite-button text-favorite w-100" onclick="event.preventDefault(); document.getElementById('favorites-store-form').submit();">
+                                        <i class="fa fa-heart"></i>
+                                        お気に入り
+                                    </a>
+                                @endif
+                        </div>
+                    </div>
+                </form>
+                <form id="favorites-destroy-form" action="{{ route('favorites.destroy', $product->id) }}" method="POST" class="d-none">
+                    @csrf
+                    @method('DELETE')
+                </form>
+                <form id="favorites-store-form" action="{{ route('favorites.store', $product->id) }}" method="POST" class="d-none">
+                    @csrf
+                </form>
              @endauth
          </div>
  
