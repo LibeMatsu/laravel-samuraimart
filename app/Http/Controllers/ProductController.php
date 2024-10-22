@@ -15,10 +15,16 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+        $keyword = $request->keyword;
+
         if ($request->category !== null) {
             $products = Product::where('category_id', $request->category)->paginate(15);
             $total_count = Product::where('category_id', $request->category)->count();
             $category = Category::find($request->category);
+        } elseif ($keyword !== null) {
+            $products = Product::where('name', 'like', "%{$keyword}%")->paginate(15);
+            $total_count = $products->total();
+            $category = null;
         } else {
             $products = Product::paginate(15);
             $total_count = "";
@@ -28,7 +34,7 @@ class ProductController extends Controller
         $categories = Category::all();
         $major_category_names = Category::pluck('major_category_name')->unique();
 
-        return view('products.index', compact('products', 'category', 'categories', 'major_category_names', 'total_count'));
+        return view('products.index', compact('products', 'category', 'categories', 'major_category_names', 'total_count', 'keyword'));
     }
 
     /**
