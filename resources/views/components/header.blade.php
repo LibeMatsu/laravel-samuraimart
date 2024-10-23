@@ -36,23 +36,11 @@
                 
                  @else
                  <!-- ログインしている場合の処理 -->
-                     <li class="nav-item mr-5">
-                        <!-- 
-                            event.preventDefault(); ←リンクがクリックされたときにページ移動することを防ぐ
-                            document.getElementById('logout-form').submit(); ←ID指定でsubmit
-                        -->
-                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                             ログアウト
-                         </a>
- 
-                        <!-- 
-                            display: none;な見えないform
-                            {{ route('logout') }}でログアウト
-                        -->
-                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                             @csrf
-                         </form>
-                     </li>
+                 <li class="nav-item mr-5">
+                    <a class="nav-link" href="{{ route('mypage') }}">
+                        <i class="fas fa-user mr-1"></i><label>マイページ</label>
+                    </a>
+                </li>
                  @endguest
              </ul>
          </div>
