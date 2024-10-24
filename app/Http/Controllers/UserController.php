@@ -80,6 +80,6 @@ class UserController extends Controller
         $favorite_products = $user->favorite_products;
 
         return view('users.favorite', compact('favorite_products'));
-     }
+    }
 
 }
