@@ -67,6 +67,5 @@ class CartController extends Controller
         Cart::instance(Auth::user()->id)->destroy();
 
         return to_route('carts.index');
-
     }
 }
