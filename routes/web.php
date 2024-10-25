@@ -54,5 +54,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::controller(CartController::class)->group(function () {
         Route::get('users/carts', 'index')->name('carts.index');
+        Route::post('users/carts', 'store')->name('carts.store');
     });
 });
