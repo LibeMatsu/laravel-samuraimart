@@ -34,7 +34,17 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Cart::instance(Auth::user()->id)->add(
+            [
+                'id' => $request->id, 
+                'name' => $request->name, 
+                'qty' => $request->qty, 
+                'price' => $request->price, 
+                'weight' => $request->weight, 
+            ]
+        );
+
+        return to_route('products_shoe', $request->get('id'));
     }
 
     /**
