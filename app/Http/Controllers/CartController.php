@@ -45,7 +45,7 @@ class CartController extends Controller
             ]
         );
 
-        return to_route('products_shoe', $request->get('id'));
+        return to_route('products.show', $request->get('id'));
     }
 
     /**
