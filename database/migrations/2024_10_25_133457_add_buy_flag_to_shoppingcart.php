@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('shoppingcart', function (Blueprint $table) {
-            //
+            $table->boolean('buy_flag')->default(false);
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('shoppingcart', function (Blueprint $table) {
-            //
+            $table->dropColumn('buy_flag');
         });
     }
 };
