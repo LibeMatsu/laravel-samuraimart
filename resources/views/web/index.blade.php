@@ -11,20 +11,20 @@
          <div class="row">
              <div class="col-4">
                  <a href="#">
-                     <img src="{{ asset('img/chestnut.jpg') }}" class="img-thumbnail">
+                     <img src="{{ asset('img/DSC04063_TP_V4.jpg') }}" class="img-thumbnail">
                  </a>
                  <div class="row">
                      <div class="col-12">
                          <p class="samuraimart-product-label mt-2">
-                             和栗の詰め合わせ<br>
-                             <label>￥2000</label>
+                             どんぐり詰め合わせ<br>
+                             <label>￥200</label>
                          </p>
                      </div>
                  </div>
              </div>
              <div class="col-4">
                  <a href="#">
-                     <img src="{{ asset('img/persimmon.jpg') }}" class="img-thumbnail">
+                     <img src="{{ asset('img/elfa_IMG_4454_TP_V4.jpg') }}" class="img-thumbnail">
                  </a>
                  <div class="row">
                      <div class="col-12">
@@ -38,7 +38,7 @@
  
              <div class="col-4">
                  <a href="#">
-                     <img src="{{ asset('img/orange.jpg') }}" class="img-thumbnail">
+                     <img src="{{ asset('img/marbee_DSC0316_TP_V4.jpg') }}" class="img-thumbnail">
                  </a>
                  <div class="row">
                      <div class="col-12">
@@ -56,12 +56,12 @@
          <div class="row">
              <div class="col-3">
                  <a href="#">
-                     <img src="{{ asset('img/robot-vacuum-cleaner.jpg') }}" class="img-thumbnail">
+                     <img src="{{ asset('img/fksyabusameIMG_6086-341_TP_V4.jpg') }}" class="img-thumbnail">
                  </a>
                  <div class="row">
                      <div class="col-12">
                          <p class="samuraimart-product-label mt-2">
-                             ロボット掃除機<br>
+                             信楽焼狸<br>
                              <label>￥55000</label>
                          </p>
                      </div>
@@ -70,12 +70,12 @@
  
              <div class="col-3">
                  <a href="#">
-                     <img src="{{ asset('img/sofa.jpg') }}" class="img-thumbnail">
+                     <img src="{{ asset('img/nekocyanPAKE5233-481_TP_V4.jpg') }}" class="img-thumbnail">
                  </a>
                  <div class="row">
                      <div class="col-12">
                          <p class="samuraimart-product-label mt-2">
-                             3人掛けソファー<br>
+                             ソファー<br>
                              <label>￥35000</label>
                          </p>
                      </div>
@@ -84,7 +84,7 @@
  
              <div class="col-3">
                  <a href="#">
-                     <img src="{{ asset('img/cup.jpg') }}" class="img-thumbnail">
+                     <img src="{{ asset('img/ogasuta458A8165_TP_V4.jpg') }}" class="img-thumbnail">
                  </a>
                  <div class="row">
                      <div class="col-12">
@@ -98,12 +98,12 @@
  
              <div class="col-3">
                  <a href="#">
-                     <img src="{{ asset('img/cutlery.jpg') }}" class="img-thumbnail">
+                     <img src="{{ asset('img/Tm2132038A3951_TP_V4.jpg') }}" class="img-thumbnail">
                  </a>
                  <div class="row">
                      <div class="col-12">
                          <p class="samuraimart-product-label mt-2">
-                             食器 カトラリーセット1組<br>
+                             食器セット<br>
                              <label>￥2000</label>
                          </p>
                      </div>
