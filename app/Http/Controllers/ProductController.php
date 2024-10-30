@@ -16,6 +16,8 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+        $major_category = null;
+        
         $keyword = $request->keyword;
 
         if ($request->category !== null) {
