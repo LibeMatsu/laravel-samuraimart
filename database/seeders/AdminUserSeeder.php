@@ -14,7 +14,7 @@ class AdminUserSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run()
     {
         // ユーザーがすでに存在するか確認（これにより重複エラーを防ぐ）
         $user = Administrator::firstOrNew(
@@ -31,17 +31,23 @@ class AdminUserSeeder extends Seeder
         }
 
         // 管理者ロールが存在しない場合、作成
-        $role = Role::firstOrCreate(
+        $adminRole = Role::firstOrCreate(
             ['name' => 'administrator'],
-            ['slug' => 'Administrator']
+            ['slug' => 'administrator']
         );
 
-        // 既存のadminユーザーを取得
+        // 必要な権限を作成
+        $permissions = ['dashboard', 'users', 'categories', 'products', 'major-categories', 'shopping-carts'];
+        foreach ($permissions as $permission) {
+            $perm = Permission::firstOrCreate(['name' => $permission, 'slug' => $permission]);
+            $adminRole->permissions()->save($perm);
+        }
+
+        // 管理者ユーザーを取得
         $adminUser = Administrator::where('username', 'admin')->first();
 
         // 管理者ロールを割り当て
         $adminRole = Role::where('name', 'administrator')->first();
         $adminUser->roles()->save($adminRole);
-
     }
 }
